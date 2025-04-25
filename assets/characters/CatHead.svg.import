@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di7yv20vaa52g"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://buerh0uabl438"
+path="res://.godot/imported/CatHead.svg-c3a60ab8b4bdeaed24076931850de33b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://assets/characters/CatHead.svg"
+dest_files=["res://.godot/imported/CatHead.svg-c3a60ab8b4bdeaed24076931850de33b.ctex"]
 
 [params]
 

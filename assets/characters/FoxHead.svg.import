@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di7yv20vaa52g"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://dilsoqda6g1hv"
+path="res://.godot/imported/FoxHead.svg-d45a7a919f852a385da323fc7c3f4f8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://assets/characters/FoxHead.svg"
+dest_files=["res://.godot/imported/FoxHead.svg-d45a7a919f852a385da323fc7c3f4f8c.ctex"]
 
 [params]
 

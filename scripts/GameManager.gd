@@ -52,6 +52,7 @@ func next_map():
 func game_over() -> void:
 	current_map = 0
 	var tree = get_tree()
+	GameManager.selected = 0
 	if tree:
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/game_over.tscn")
 		#tree.change_scene_to_file("res://scenes/game_over.tscn")

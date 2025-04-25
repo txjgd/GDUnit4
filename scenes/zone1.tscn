@@ -25,9 +25,6 @@ tile_set = ExtResource("1_nffip")
 position = Vector2(-140, 0)
 metadata/_edit_group_ = true
 
-[node name="AreaSenseComponent" parent="Mobs/Foe1" index="6" node_paths=PackedStringArray("target")]
-target = NodePath("")
-
 [node name="CollisionShape2D" parent="Mobs/Foe1/AreaSenseComponent" index="0"]
 metadata/_edit_lock_ = true
 
@@ -37,9 +34,6 @@ marker = NodePath("../../../../Posts/Post1")
 [node name="Foe2" parent="Mobs" instance=ExtResource("3_nl877")]
 position = Vector2(140, 0)
 metadata/_edit_group_ = true
-
-[node name="AreaSenseComponent" parent="Mobs/Foe2" index="6" node_paths=PackedStringArray("target")]
-target = NodePath("")
 
 [node name="CollisionShape2D" parent="Mobs/Foe2/AreaSenseComponent" index="0"]
 metadata/_edit_lock_ = true
@@ -51,9 +45,6 @@ marker = NodePath("../../../../Posts/Post2")
 position = Vector2(0, -140)
 metadata/_edit_group_ = true
 
-[node name="AreaSenseComponent" parent="Mobs/Foe3" index="6" node_paths=PackedStringArray("target")]
-target = NodePath("")
-
 [node name="CollisionShape2D" parent="Mobs/Foe3/AreaSenseComponent" index="0"]
 metadata/_edit_lock_ = true
 
@@ -63,9 +54,6 @@ marker = NodePath("../../../../Posts/Post3")
 [node name="Foe4" parent="Mobs" instance=ExtResource("3_nl877")]
 position = Vector2(0, 140)
 metadata/_edit_group_ = true
-
-[node name="AreaSenseComponent" parent="Mobs/Foe4" index="6" node_paths=PackedStringArray("target")]
-target = NodePath("")
 
 [node name="CollisionShape2D" parent="Mobs/Foe4/AreaSenseComponent" index="0"]
 metadata/_edit_lock_ = true
@@ -77,8 +65,7 @@ marker = NodePath("../../../../Posts/Post4")
 position = Vector2(-187, -157)
 metadata/_edit_group_ = true
 
-[node name="AreaSenseComponent" parent="Mobs/Foe" index="6" node_paths=PackedStringArray("target")]
-target = NodePath("")
+[node name="AreaSenseComponent" parent="Mobs/Foe" index="6"]
 range = 250.0
 
 [node name="ThrowingState" parent="Mobs/Foe/StateMachineComponent" index="2" node_paths=PackedStringArray("container")]

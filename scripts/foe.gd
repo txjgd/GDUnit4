@@ -3,9 +3,14 @@ extends CharacterBody2D
 @onready var state_machine = $StateMachineComponent
 @onready var stun = $StateMachineComponent/StunFoeState
 
+@onready var area_sensor = get_node( 'AreaSenseComponent' )
 
 func take_damage( amt: float ) -> void:
 	state_machine.transition_to( stun )
+
+func set_target( who :CharacterBody2D ) -> void:
+	if area_sensor:
+		area_sensor.target = who
 
 
 #func _physics_process( delta :float ) -> void:

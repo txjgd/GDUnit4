@@ -3,7 +3,6 @@ extends Node
 var final_score :int = 0
 
 var maps = [
-	"res://scenes/boss_zone1.tscn",
 	"res://scenes/zone1.tscn",
 	"res://scenes/zone2.tscn",
 	"res://scenes/boss_zone1.tscn",
@@ -11,6 +10,8 @@ var maps = [
 	]
 
 var current_map :int = 0
+
+var selected = 0
 
 func _ready():
 	print( maps.size() )
@@ -32,6 +33,8 @@ func load_map( which :int ) -> void:
 	# add the new map
 	var map = scene.instantiate()
 	map_container.add_child( map )
+	var gp = get_tree().get_first_node_in_group( 'game_play_group' )
+	gp.setup_map()
 	print("map added")
 	
 func next_map():

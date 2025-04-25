@@ -27,7 +27,7 @@ shape = SubResource("CircleShape2D_wpqta")
 
 [node name="MoveConfigComponent" type="Node" parent="."]
 script = ExtResource("2_adh8y")
-speed = 50.0
+speed = 150.0
 
 [node name="BasicMoveInputComponent" type="Node" parent="." node_paths=PackedStringArray("body", "config")]
 script = ExtResource("3_n3a1r")

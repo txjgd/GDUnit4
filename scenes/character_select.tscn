@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://dsj63htvojwdo"]
+
+[ext_resource type="Script" path="res://scripts/character_select.gd" id="1_8n74b"]
+[ext_resource type="FontFile" uid="uid://dpojb7kysb4ux" path="res://assets/fonts/Jersey10-Regular.ttf" id="2_r44fp"]
+[ext_resource type="Texture2D" uid="uid://buerh0uabl438" path="res://assets/characters/CatHead.svg" id="3_muyph"]
+[ext_resource type="Material" uid="uid://b1cu0ne4uxr6m" path="res://resources/mix_canvas_material.tres" id="3_p1l85"]
+[ext_resource type="Texture2D" uid="uid://dilsoqda6g1hv" path="res://assets/characters/FoxHead.svg" id="4_2t52a"]
+[ext_resource type="Material" uid="uid://djjitd6gl40x0" path="res://resources/subtract_canvas_material.tres" id="5_fjmus"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_or801"]
+font = ExtResource("2_r44fp")
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_h6x6w"]
+font = ExtResource("2_r44fp")
+font_size = 64
+
+[node name="Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8n74b")
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -219.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 254.0
+offset_top = 100.0
+offset_right = 1029.0
+offset_bottom = 238.0
+text = "Character Select"
+label_settings = SubResource("LabelSettings_or801")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 281.0
+offset_top = 575.0
+offset_right = 998.0
+offset_bottom = 645.0
+text = "Press SPACE to Start"
+label_settings = SubResource("LabelSettings_h6x6w")
+horizontal_alignment = 1
+
+[node name="CharacterName" type="Label" parent="."]
+layout_mode = 2
+offset_left = 583.0
+offset_top = 420.0
+offset_right = 696.0
+offset_bottom = 524.0
+theme_override_colors/font_color = Color(0.917647, 0.54902, 0, 1)
+theme_override_fonts/font = ExtResource("2_r44fp")
+theme_override_font_sizes/font_size = 96
+text = "Cat"
+horizontal_alignment = 1
+
+[node name="Cat" type="Sprite2D" parent="."]
+material = ExtResource("3_p1l85")
+position = Vector2(480, 327)
+texture = ExtResource("3_muyph")
+
+[node name="Fox" type="Sprite2D" parent="."]
+material = ExtResource("5_fjmus")
+position = Vector2(800, 327)
+texture = ExtResource("4_2t52a")

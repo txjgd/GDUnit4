@@ -8,6 +8,11 @@ script = ExtResource("1_ifw3v")
 
 [node name="Map" type="Node2D" parent="." groups=["map_container"]]
 
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" groups=["hud_group"] instance=ExtResource("2_y5pv8")]

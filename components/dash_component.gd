@@ -15,13 +15,14 @@ var cooldown :float = 0
 var mid_dash :bool = false
 
 func _physics_process( delta :float ) -> void:
-	if body.global_position.distance_to( dash_loc ) > 5:
-		#print( host.global_position.distance_to( rush_loc ) )
-		var direction = body.global_position.direction_to( dash_loc )
-		body.velocity = direction * dash_speed
-		body.move_and_slide()
-	else:
-		mid_dash = false
+	if mid_dash:
+		if body.global_position.distance_to( dash_loc ) > 5:
+			#print( host.global_position.distance_to( rush_loc ) )
+			var direction = body.global_position.direction_to( dash_loc )
+			body.velocity = direction * dash_speed
+			body.move_and_slide()
+		else:
+			mid_dash = false
 		
 	pass
 	

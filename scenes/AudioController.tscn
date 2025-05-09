@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0anl0pvqgkoa"]
+
+[ext_resource type="AudioStream" uid="uid://82suea0ao1fi" path="res://assets/audio/2017-04-14_-_Happy_Dreams_-_David_Fesliyan.mp3" id="1_euy4s"]
+[ext_resource type="Script" path="res://scripts/audio_controller.gd" id="1_pjor0"]
+[ext_resource type="AudioStream" uid="uid://koq7kjmthog0" path="res://assets/audio/2019-04-15_-_ROFL_-_www.fesliyanstudios.com.mp3" id="2_rrqkv"]
+
+[node name="AudioController" type="Node"]
+script = ExtResource("1_pjor0")
+
+[node name="bgm1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_euy4s")
+bus = &"Music"
+
+[node name="bgm2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_rrqkv")
+bus = &"Music"

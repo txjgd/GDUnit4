@@ -1,6 +1,6 @@
 extends Node
 
-var final_score :int = 0
+var score :int = 0
 
 var maps = [
 	"res://scenes/zone1.tscn",
@@ -8,6 +8,8 @@ var maps = [
 	"res://scenes/boss_zone1.tscn",
 	"res://scenes/zone3.tscn",
 	]
+
+var bosses = [2]
 
 var current_map :int = 0
 
@@ -35,6 +37,7 @@ func load_map( which :int ) -> void:
 	map_container.add_child( map )
 	var gp = get_tree().get_first_node_in_group( 'game_play_group' )
 	gp.setup_map()
+
 	print("map added")
 	
 func next_map():
@@ -45,8 +48,14 @@ func next_map():
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/game_win.tscn")
 			#tree.change_scene_to_file( "res://scenes/game_win.tscn" )
 		return
-		
+	
+	print("Loading map ", current_map )
 	load_map( current_map )
+	if bosses.find( current_map ) == -1:
+		AudioController.play_bgm(0)
+	else:
+		AudioController.play_bgm(1)
+
 	current_map += 1
 
 func game_over() -> void:
@@ -58,4 +67,4 @@ func game_over() -> void:
 		#tree.change_scene_to_file("res://scenes/game_over.tscn")
 
 func reset_score() -> void:
-	final_score = 0
+	score = 0

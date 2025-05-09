@@ -3,7 +3,7 @@ extends Control
 @onready var final = $CenterContainer/VBoxContainer/Final
 
 func _ready():
-	final.text = "Final Score: " + str(GameManager.final_score)
+	final.text = "Final Score: " + str(GameManager.score)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

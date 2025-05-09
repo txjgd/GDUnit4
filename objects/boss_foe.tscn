@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jqnytdbl2uib"]
+[gd_scene load_steps=18 format=3 uid="uid://jqnytdbl2uib"]
 
 [ext_resource type="Script" path="res://scripts/boss_foe.gd" id="1_uslev"]
 [ext_resource type="Texture2D" uid="uid://c0hhxutkvwkvx" path="res://assets/other/exclamation-mark.svg" id="2_fb8vd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://components/area_sense_component.gd" id="6_ip7wr"]
 [ext_resource type="Script" path="res://components/state_machine_component.gd" id="7_poeq0"]
 [ext_resource type="Script" path="res://components/states/chasing_anywhere_foe_state.gd" id="9_ish2j"]
+[ext_resource type="AudioStream" uid="uid://bf2fm76vrxjes" path="res://assets/audio/bull rush.ogg" id="10_047e0"]
 [ext_resource type="Script" path="res://components/states/bum_rush_state.gd" id="12_ra5cc"]
 
 [sub_resource type="Animation" id="Animation_gitk1"]
@@ -248,13 +249,14 @@ script = ExtResource("7_poeq0")
 host = NodePath("..")
 initial_state = NodePath("ChasingAnywhereFoeState")
 
-[node name="BumRushState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("animations", "sensor", "chasing")]
+[node name="BumRushState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("animations", "sensor", "chasing", "rushsfx")]
 script = ExtResource("12_ra5cc")
 animations = NodePath("../../AnimationPlayer")
 sensor = NodePath("../../AreaSenseComponent")
 chasing = NodePath("../ChasingAnywhereFoeState")
 speed = 250.0
 rush_distance = 300.0
+rushsfx = NodePath("../../RushSFX")
 
 [node name="ChasingAnywhereFoeState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("animations", "sensor", "rush", "nav")]
 script = ExtResource("9_ish2j")
@@ -263,3 +265,9 @@ sensor = NodePath("../../AreaSenseComponent")
 rush = NodePath("../BumRushState")
 speed = 125.0
 nav = NodePath("../../NavigationAgent2D")
+
+[node name="RushSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_047e0")
+volume_db = -4.0
+pitch_scale = 0.95
+bus = &"SFX2"

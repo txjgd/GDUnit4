@@ -16,3 +16,6 @@ zoom = Vector2(2, 2)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" groups=["hud_group"] instance=ExtResource("2_y5pv8")]
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+bus = &"Music"

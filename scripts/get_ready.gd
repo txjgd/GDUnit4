@@ -5,7 +5,7 @@ var countdown = 3
 @onready var slabel = $CenterContainer/VBoxContainer/Score
 
 func _ready():
-	slabel.text = "Score: " + str( GameManager.final_score )
+	slabel.text = "Score: " + str( GameManager.score )
 	$Timer.start()
 	
 

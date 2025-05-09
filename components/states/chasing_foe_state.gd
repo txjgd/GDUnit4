@@ -7,6 +7,7 @@ extends StateComponent
 @export var rush   :BumRushState
 @export var speed  :float = 100
 
+
 var can_rush :float = 0.0
 
 func enter( prev :StateComponent ) -> void:

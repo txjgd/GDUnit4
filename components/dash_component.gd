@@ -8,6 +8,7 @@ extends Node
 @export var dash_speed :float = 400
 @export var rate :float = 1
 @export var mover :BasicMoveInputComponent
+@export var actionsfx :AudioStreamPlayer2D
 
 var dash_loc :Vector2
 
@@ -31,6 +32,9 @@ func activate() -> Node2D:
 	if cooldown > 0:
 		return null
 
+	if actionsfx:
+		actionsfx.play()
+		
 	dash_loc = body.position + (mover.direction * dash_distance)
 	mid_dash = true
 	return body

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://p28krnp2ox7d"]
+[gd_scene load_steps=10 format=3 uid="uid://p28krnp2ox7d"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_crw6n"]
 [ext_resource type="Script" path="res://components/move_config_component.gd" id="2_adh8y"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://components/aim_state_component.gd" id="4_bujos"]
 [ext_resource type="Script" path="res://components/launch_component.gd" id="5_gxu8c"]
 [ext_resource type="PackedScene" uid="uid://cepaoatkghejq" path="res://objects/projectile.tscn" id="6_6wg4b"]
+[ext_resource type="AudioStream" uid="uid://dvvwmlh7lfm56" path="res://assets/audio/throw2.ogg" id="8_caxcg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpqta"]
 radius = 60.0
@@ -38,7 +39,13 @@ config = NodePath("../MoveConfigComponent")
 script = ExtResource("4_bujos")
 origin = NodePath("..")
 
-[node name="LaunchComponent" type="Node" parent="." node_paths=PackedStringArray("aim")]
+[node name="LaunchComponent" type="Node" parent="." node_paths=PackedStringArray("aim", "actionsfx")]
 script = ExtResource("5_gxu8c")
 projectile = ExtResource("6_6wg4b")
 aim = NodePath("../AimStateComponent")
+actionsfx = NodePath("../ActionSFX")
+
+[node name="ActionSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_caxcg")
+volume_db = -2.0
+bus = &"SFX"

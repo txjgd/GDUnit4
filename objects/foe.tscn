@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bfegvcssuo345"]
+[gd_scene load_steps=23 format=3 uid="uid://bfegvcssuo345"]
 
 [ext_resource type="Texture2D" uid="uid://dqc1fx288t786" path="res://assets/characters/CowHead.svg" id="1_3jobk"]
 [ext_resource type="Script" path="res://scripts/foe.gd" id="1_utyqy"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://components/states/stun_foe_state.gd" id="9_cpn8n"]
 [ext_resource type="Script" path="res://components/states/go_to_post.gd" id="10_jjkab"]
 [ext_resource type="Script" path="res://components/states/bum_rush_state.gd" id="12_6nxu8"]
+[ext_resource type="AudioStream" uid="uid://biemxi3dg4oi2" path="res://assets/audio/cow.ogg" id="13_cm2ir"]
+[ext_resource type="AudioStream" uid="uid://bf2fm76vrxjes" path="res://assets/audio/bull rush.ogg" id="14_oh32k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c32eb"]
 radius = 6.0
@@ -260,11 +262,12 @@ sensor = NodePath("../../AreaSenseComponent")
 goback = NodePath("../GotoPostState")
 rush = NodePath("../BumRushState")
 
-[node name="StunFoeState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("animations", "idle", "action")]
+[node name="StunFoeState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("animations", "idle", "action", "stunsfx")]
 script = ExtResource("9_cpn8n")
 animations = NodePath("../../AnimationPlayer")
 idle = NodePath("../IdleFoeState")
 action = NodePath("../ChasingFoeState")
+stunsfx = NodePath("../../StunSFX")
 
 [node name="GotoPostState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("sensor", "chasing", "idle")]
 script = ExtResource("10_jjkab")
@@ -272,9 +275,20 @@ sensor = NodePath("../../AreaSenseComponent")
 chasing = NodePath("../ChasingFoeState")
 idle = NodePath("../IdleFoeState")
 
-[node name="BumRushState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("animations", "sensor", "chasing", "goback")]
+[node name="BumRushState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("animations", "sensor", "chasing", "goback", "rushsfx")]
 script = ExtResource("12_6nxu8")
 animations = NodePath("../../AnimationPlayer")
 sensor = NodePath("../../AreaSenseComponent")
 chasing = NodePath("../ChasingFoeState")
 goback = NodePath("../GotoPostState")
+rushsfx = NodePath("../../RushSFX")
+
+[node name="StunSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_cm2ir")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="RushSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_oh32k")
+volume_db = -4.0
+bus = &"SFX"

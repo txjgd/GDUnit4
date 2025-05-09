@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdw12el53mowb"]
+[gd_scene load_steps=9 format=3 uid="uid://cdw12el53mowb"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kun62"]
 [ext_resource type="Texture2D" uid="uid://buerh0uabl438" path="res://assets/characters/CatHead.svg" id="2_nwhjk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://components/basic_move_input_component.gd" id="4_1je18"]
 [ext_resource type="Script" path="res://components/aim_state_component.gd" id="5_fa04b"]
 [ext_resource type="Script" path="res://components/dash_component.gd" id="6_t5v24"]
+[ext_resource type="AudioStream" uid="uid://echnbj2ph6yi" path="res://assets/audio/dash.ogg" id="7_3sofb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpqta"]
 radius = 60.0
@@ -37,7 +38,13 @@ config = NodePath("../MoveConfigComponent")
 script = ExtResource("5_fa04b")
 origin = NodePath("..")
 
-[node name="DashComponent" type="Node" parent="." node_paths=PackedStringArray("body", "mover")]
+[node name="DashComponent" type="Node" parent="." node_paths=PackedStringArray("body", "mover", "actionsfx")]
 script = ExtResource("6_t5v24")
 body = NodePath("..")
 mover = NodePath("../BasicMoveInputComponent")
+actionsfx = NodePath("../ActionSFX")
+
+[node name="ActionSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_3sofb")
+volume_db = -2.0
+bus = &"SFX"

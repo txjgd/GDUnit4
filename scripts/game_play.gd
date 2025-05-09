@@ -3,7 +3,6 @@ extends Node2D
 var total_gathered :int = 0
 
 var remaining :int = 0
-var score :int = 0
 
 @onready var hud_count = $CanvasLayer/HUD/Count
 @onready var hud_score = $CanvasLayer/HUD/Score
@@ -40,10 +39,9 @@ func add_amount_to_gather( amt :int ) -> void:
 func note_item_picked_up( time :float ):
 	remaining -= 1
 	total_gathered += 1
-	score += clamp( 100 - (time * 10), 5, 100 )
+	GameManager.score += clamp( 100 - (time * 10), 5, 100 )
 	hud_count.text = str( remaining )
-	hud_score.text = str( score )
-	GameManager.final_score = score
+	hud_score.text = str( GameManager.score )
 	
 	if remaining == 0:
 		get_tree().call_deferred( "change_scene_to_file", "res://scenes/get_ready.tscn" )

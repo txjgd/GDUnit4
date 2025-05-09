@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d30tmrxlyd3jd"]
+[gd_scene load_steps=5 format=3 uid="uid://d30tmrxlyd3jd"]
 
 [ext_resource type="Texture2D" uid="uid://oaatltjilxhd" path="res://assets/other/For Items2_Oramge.png" id="1_ho8d5"]
 [ext_resource type="Script" path="res://scripts/pickup.gd" id="1_m3kdn"]
+[ext_resource type="AudioStream" uid="uid://c16e78e5uv8d" path="res://assets/audio/chomp.ogg" id="3_xhjgg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5w6rk"]
 radius = 5.0
@@ -18,5 +19,9 @@ texture = ExtResource("1_ho8d5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_5w6rk")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xhjgg")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

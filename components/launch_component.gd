@@ -7,6 +7,7 @@ extends Node
 @export var aim :AimStateComponent
 @export var container :Node
 @export var rate :float = 1
+@export var actionsfx :AudioStreamPlayer2D
 
 var cooldown :float = 0
 
@@ -24,6 +25,9 @@ func activate() -> Node2D:
 	var proj = projectile.instantiate()
 	container.add_child( proj )
 	proj.global_position = aim.get_aim_from_position()
+
+	if actionsfx:
+		actionsfx.play()
 	
 	var move = proj.get_node("StraightMoverComponent")
 	if move:

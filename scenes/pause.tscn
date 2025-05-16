@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5i4axbvqcthb"]
+[gd_scene load_steps=4 format=3 uid="uid://b5i4axbvqcthb"]
 
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_o1f1d"]
+[ext_resource type="Shader" path="res://resources/pause.gdshader" id="2_svb81"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ckgeb"]
+shader = ExtResource("2_svb81")
+shader_parameter/blur_amount = 3.0
 
 [node name="Pause" type="Control"]
 process_mode = 3
@@ -11,6 +16,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o1f1d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ckgeb")
+layout_mode = 0
+offset_left = -1280.0
+offset_top = -720.0
+offset_right = 1280.0
+offset_bottom = 720.0
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0

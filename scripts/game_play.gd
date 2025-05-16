@@ -6,11 +6,13 @@ var remaining :int = 0
 
 @onready var hud_count = $CanvasLayer/HUD/Count
 @onready var hud_score = $CanvasLayer/HUD/Score
+@onready var pause = $PauseLayer/Pause
 
 var cat_char = preload( "res://objects/cat.tscn" ) 
 var fox_char = preload( "res://objects/fox.tscn" )
 
 var character :CharacterBody2D
+
 
 func _ready():
 	var old = $Player
@@ -29,6 +31,12 @@ func _ready():
 	
 	GameManager.next_map()
 	pass # Replace with function body.
+
+
+func _process( delta :float ):
+	if Input.is_action_just_pressed( "pause" ):
+		pauseGame()
+		pass
 
 
 func add_amount_to_gather( amt :int ) -> void:
@@ -59,3 +67,20 @@ func setup_map():
 		else:
 			print( 'Error! Map needs a "Projectiles" Node')
 			
+
+func pauseGame():
+	print("pausing...")
+	pause.show()
+	$Map.process_mode = Node.PROCESS_MODE_DISABLED
+	$Player.process_mode = Node.PROCESS_MODE_DISABLED
+	$CanvasLayer.process_mode = Node.PROCESS_MODE_DISABLED
+	pause.get_focus()
+
+
+func resumeGame():
+	print("resuming...")
+	pause.hide()
+	$Map.process_mode = Node.PROCESS_MODE_INHERIT
+	$Player.process_mode = Node.PROCESS_MODE_INHERIT
+	$CanvasLayer.process_mode = Node.PROCESS_MODE_INHERIT
+	#get_tree().paused = false

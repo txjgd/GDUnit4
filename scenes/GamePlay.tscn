@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://s6lsx07a0lq4"]
+[gd_scene load_steps=4 format=3 uid="uid://s6lsx07a0lq4"]
 
 [ext_resource type="Script" path="res://scripts/game_play.gd" id="1_ifw3v"]
 [ext_resource type="PackedScene" uid="uid://bxkia4gs3h516" path="res://scenes/HUD.tscn" id="2_y5pv8"]
+[ext_resource type="PackedScene" uid="uid://b5i4axbvqcthb" path="res://scenes/pause.tscn" id="3_ah8fi"]
 
 [node name="GamePlay" type="Node2D" groups=["game_play_group"]]
 script = ExtResource("1_ifw3v")
@@ -19,3 +20,8 @@ zoom = Vector2(2, 2)
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 bus = &"Music"
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="PauseLayer" instance=ExtResource("3_ah8fi")]
+visible = false

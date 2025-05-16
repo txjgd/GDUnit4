@@ -44,7 +44,6 @@ func next_map():
 	if current_map >= maps.size():
 		var tree = get_tree()
 		if tree:
-			current_map = 0
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/game_win.tscn")
 			#tree.change_scene_to_file( "res://scenes/game_win.tscn" )
 		return
@@ -59,7 +58,6 @@ func next_map():
 	current_map += 1
 
 func game_over() -> void:
-	current_map = 0
 	var tree = get_tree()
 	GameManager.selected = 0
 	if tree:
@@ -68,3 +66,4 @@ func game_over() -> void:
 
 func reset_score() -> void:
 	score = 0
+	current_map = 0

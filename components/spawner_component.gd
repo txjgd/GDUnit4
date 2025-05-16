@@ -26,7 +26,6 @@ func _ready():
 
 func picked_up( who :Node ) -> void:
 	game_play.note_item_picked_up( time_since_spawn )
-	who.queue_free()
 	
 	var tree = get_tree()
 	if tree:

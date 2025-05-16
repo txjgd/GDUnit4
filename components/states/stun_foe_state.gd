@@ -6,6 +6,7 @@ extends StateComponent
 @export var action :StateComponent
 @export var stun_time :float = 5
 @export var stunsfx  :AudioStreamPlayer2D
+@export var bonksfx  :AudioStreamPlayer2D
 
 var cooldown :float = 0
 
@@ -15,6 +16,8 @@ func enter( prev :StateComponent ) -> void:
 	#host.get_node("Shock").visible = false
 	animations.stop()
 	animations.play( "shake" )
+	if bonksfx:
+		bonksfx.play()
 	if stunsfx:
 		stunsfx.play()
 

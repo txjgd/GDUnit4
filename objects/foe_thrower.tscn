@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cipq26x7x55b5"]
+[gd_scene load_steps=22 format=3 uid="uid://cipq26x7x55b5"]
 
 [ext_resource type="Script" path="res://scripts/foe.gd" id="1_76hap"]
 [ext_resource type="Texture2D" uid="uid://c0hhxutkvwkvx" path="res://assets/other/exclamation-mark.svg" id="2_3dhfe"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://components/states/stun_foe_state.gd" id="10_yqdli"]
 [ext_resource type="PackedScene" uid="uid://dxim7ioxf3b78" path="res://objects/rock_projectile.tscn" id="11_vbbkg"]
 [ext_resource type="AudioStream" uid="uid://too44vnuejm8" path="res://assets/audio/sheep.ogg" id="12_gd1y7"]
+[ext_resource type="AudioStream" uid="uid://bk36w30x1jigt" path="res://assets/audio/bonk.ogg" id="13_3gmme"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c32eb"]
 radius = 6.0
@@ -254,12 +255,13 @@ script = ExtResource("8_b7wqc")
 sensor = NodePath("../../AreaSenseComponent")
 action = NodePath("../ThrowingState")
 
-[node name="StunFoeState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("animations", "idle", "action", "stunsfx")]
+[node name="StunFoeState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("animations", "idle", "action", "stunsfx", "bonksfx")]
 script = ExtResource("10_yqdli")
 animations = NodePath("../../AnimationPlayer")
 idle = NodePath("../IdleFoeState")
 action = NodePath("../ThrowingState")
 stunsfx = NodePath("../../StunSFX")
+bonksfx = NodePath("../../BonkSFX")
 
 [node name="ThrowingState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("animations", "sensor", "goback")]
 script = ExtResource("10_xvji3")
@@ -270,4 +272,10 @@ goback = NodePath("../IdleFoeState")
 
 [node name="StunSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_gd1y7")
-volume_db = -4.0
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="BonkSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_3gmme")
+volume_db = -1.0
+bus = &"SFX"

@@ -46,5 +46,5 @@ actionsfx = NodePath("../ActionSFX")
 
 [node name="ActionSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_3sofb")
-volume_db = -2.0
+volume_db = -1.0
 bus = &"SFX"

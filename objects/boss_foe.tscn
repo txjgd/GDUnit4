@@ -218,7 +218,6 @@ texture = ExtResource("4_boiqo")
 path_desired_distance = 5.0
 target_desired_distance = 5.0
 path_postprocessing = 1
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0.0901961, 1, 1)
 

@@ -15,8 +15,13 @@ var current_map :int = 0
 
 var selected = 0
 
+var difficulty :int = 1
+
+var game_speeds = [ 0.85, 1.00, 1.15, 1.30, 1.35 ]
+
+
 func _ready():
-	print( maps.size() )
+	set_difficulty( difficulty )
 	pass
 
 
@@ -67,3 +72,7 @@ func game_over() -> void:
 func reset_score() -> void:
 	score = 0
 	current_map = 0
+
+func set_difficulty( d :int ):
+	difficulty = d
+	Engine.time_scale = game_speeds[d]

@@ -17,8 +17,7 @@ var selected = 0
 
 var difficulty :int = 1
 
-var game_speeds = [ 0.85, 1.00, 1.15, 1.30, 1.35 ]
-
+var game_speeds = [ 0.50, 1.00, 1.15, 1.30, 1.35 ]
 
 func _ready():
 	set_difficulty( difficulty )

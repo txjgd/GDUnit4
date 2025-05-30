@@ -207,6 +207,7 @@ radius = 125.0
 [node name="ThrowingFoe" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_76hap")
 
 [node name="Shock" type="Sprite2D" parent="."]
